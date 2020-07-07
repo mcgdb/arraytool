@@ -1,8 +1,11 @@
 # Arraytool
-This intends to be a "python based package for phased array antenna design and analysis".
+This is a fork of S. R. Zinka's work. It appears to have been unmaintained for 4 years.
 
-Progress:
-Just some important basic routines are done. There is much more to be done!
+## Objective
+This package will be the technical equivalent of the *MATLAB Phased Array Toolbox* package for Python3.
 
-Regards,
-S. R. Zinka
+## Installation
+TBD
+
+## License
+GPL v2.0
