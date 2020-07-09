@@ -76,7 +76,7 @@ def ip_format_ex():
     # Generating Arraytool input format 
     array_ip = planar.ip_format(a, b, A, gamma)
     
-    print array_ip
+    print(array_ip)
     
 def AF_zeros_ex():
     """
@@ -126,15 +126,16 @@ def AF_zeros_ex():
                [ 0.78998547]])
        
     """
-    a = 0.5 # separation between the elements along x-axis (normalized WRS wavelength)
-    M = 10 # no. of elements along x-axis
-    
-    SLR = 25 # side-lobe ratio in dB
-    R = 10 ** (SLR / 20) # converting SLR from dB scale to linear scale
-    
+    a = 0.5  # separation between the elements along x-axis (normalized WRS wavelength)
+    M = 10  # no. of elements along x-axis
+
+    SLR = 25  # side-lobe ratio in dB
+    R = 10 ** (SLR / 20)  # converting SLR from dB scale to linear scale
+
     U0 = planar.AF_zeros(a, M, R, dist_type="Dolph-Chebyshev")
-    print 'arrayfactor zeros:', '\n', U0    
-    
+    print('arrayfactor zeros:', '\n', U0)
+
+
 def A_frm_zeros_ex():
     """
     In the previous section we obtained the array factor zeros. Now, we can use those 
@@ -179,7 +180,7 @@ def A_frm_zeros_ex():
     U0 = planar.AF_zeros(a, M, R, dist_type="Dolph-Chebyshev")
     
     A = planar.A_frm_zeros(U0, a, M, symmetry="even").T # finding excitation coefficients
-    print 'array coefficients:', '\n', A.T
+    print('array coefficients:', '\n', A.T)
     
 def dist_ex():
     """
@@ -229,7 +230,7 @@ def dist_ex():
     R = 10 ** (SLR / 20) # converting SLR from dB scale to linear scale
     
     A = planar.dist(a, M, R, dist_type_x="Taylor", mbar=2, alpha_x=0)
-    print 'array coefficients:', '\n', A.T
+    print('array coefficients:', '\n', A.T)
 
 def pattern_u_ex():
     """
@@ -422,9 +423,8 @@ def pattern_tp_ex():
     #                  phi_num=200, scale="dB", dB_limit= -40, factor="GF", plot_type="contour")
 
 if __name__ == '__main__':
-
     import arraytool.planar as planar
     import numpy as np
-    ex_choice = raw_input("Example's name: ")
-    exec ex_choice + '()'
 
+    ex_choice = input("Example's name: ")
+    exec(ex_choice + '()')

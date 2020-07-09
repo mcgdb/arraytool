@@ -7,7 +7,6 @@
 """ A simple program to plot induced surface current on paraboloid, spheroid 
 etc ... """
 
-from __future__ import division
 from numpy import sqrt, arange, pi, cos, sin, mgrid, ones_like, arccos, \
 set_printoptions, nan, array, reshape, cross, hstack
 from enthought.mayavi import mlab

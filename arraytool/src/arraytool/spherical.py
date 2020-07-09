@@ -4,7 +4,7 @@
 # Copyright (c) 2014 Srinivasa Rao Zinka
 # License: New BSD License.
 
-from __future__ import division
+
 import numpy as np
 from mayavi import mlab
 from scipy import integrate
@@ -22,7 +22,7 @@ def SH(fun_str_re, fun_str_im='0', T0=2 * np.pi, m_start= -5, m_stop=5, err_lim=
     
     N = m_stop - m_start + 1
     FS = np.zeros((N, 1), dtype='complex')
-    m_index = range(m_start, m_stop + 1)
+    m_index = list(range(m_start, m_stop + 1))
     w0 = 2 * np.pi / T0
 
     for m in m_index:
@@ -33,9 +33,9 @@ def SH(fun_str_re, fun_str_im='0', T0=2 * np.pi, m_start= -5, m_stop=5, err_lim=
         if ((FS_re[1] + FS_img[1]) < err_lim):
             FS[m - m_start] = (1 / T0) * (FS_re[0] + 1j * FS_img[0])
         else:
-            print "Absolute error of the integration is not less than 1e-10 while calculating Fourier series"
-            print "error(FS_re): ", FS_re[1]
-            print "error(FS_img): ", FS_img[1]
+            print("Absolute error of the integration is not less than 1e-10 while calculating Fourier series")
+            print("error(FS_re): ", FS_re[1])
+            print("error(FS_img): ", FS_img[1])
         m_index = np.array(m_index) * (2 * np.pi / T0)
         m_index = np.reshape(m_index, (m_index.size, -1))
         

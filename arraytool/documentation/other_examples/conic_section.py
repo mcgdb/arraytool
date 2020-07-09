@@ -10,7 +10,6 @@ for simple theoretical analysis refer:
 http://zinka.files.wordpress.com/2010/06/conic-sections.pdf
 """
 
-from __future__ import division
 import matplotlib.pyplot as plt
 from numpy import sqrt, arange, pi, cos, sin, set_printoptions, nan 
 

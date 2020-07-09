@@ -6,7 +6,6 @@
 
 """ Simple script for comparing different antenna polarization definitions """
 
-from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
 #from enthought.mayavi import mlab

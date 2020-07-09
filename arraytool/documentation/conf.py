@@ -45,14 +45,14 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-#source_encoding = 'utf-8'
+# source_encoding = 'utf-8'
 
 # The master toctree document.
 master_doc = 'index'
 
 # General information about the project.
-project = u'Arraytool'
-copyright = u'2011, Srinivas Zinka'
+project = 'Arraytool'
+copyright = '2011, Srinivas Zinka'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -186,8 +186,8 @@ htmlhelp_basename = 'Arraytooldoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Arraytool.tex', u'Arraytool Documentation',
-   u'Srinivas Zinka', 'manual'),
+    ('index', 'Arraytool.tex', 'Arraytool Documentation',
+     'Srinivas Zinka', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

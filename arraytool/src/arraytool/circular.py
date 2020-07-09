@@ -1,21 +1,23 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 # Author: Srinivasa Rao Zinka (srinivas . zinka [at] gmail . com)
 # Copyright (c) 2014 Srinivasa Rao Zinka
 # License: New BSD License.
 
-from __future__ import division
+
 import numpy as np
 from scipy import integrate, special
 import matplotlib.pyplot as plt
-import planar as pl
-import Zolotarev as zl
+from . import planar as pl
+from . import Zolotarev as zl
 from mayavi import mlab
 import warnings
 
 # adjusting "matplotlib" label fonts
 from matplotlib import rc
+
 rc('text', usetex=True)
+
 
 def ip_format_c(N, radius, A="uniform", starts_at_zero=True, plot_type="2D",
                 color='b', linewidth=1, linestyle='-', alpha=1, show=True,
@@ -87,7 +89,7 @@ def FS(fun_str_re, fun_str_im='0', T0=2 * np.pi, m_start= -5, m_stop=5, err_lim=
     
     N = m_stop - m_start + 1
     FS = np.zeros((N, 1), dtype='complex')
-    m_index = range(m_start, m_stop + 1)
+    m_index = list(range(m_start, m_stop + 1))
     w0 = 2 * np.pi / T0
 
     for m in m_index:
@@ -98,9 +100,9 @@ def FS(fun_str_re, fun_str_im='0', T0=2 * np.pi, m_start= -5, m_stop=5, err_lim=
         if ((FS_re[1] + FS_img[1]) < err_lim):
             FS[m - m_start] = (1 / T0) * (FS_re[0] + 1j * FS_img[0])
         else:
-            print "Absolute error of the integration is not less than 1e-10 while calculating Fourier series"
-            print "error(FS_re): ", FS_re[1]
-            print "error(FS_img): ", FS_img[1]
+            print("Absolute error of the integration is not less than 1e-10 while calculating Fourier series")
+            print("error(FS_re): ", FS_re[1])
+            print("error(FS_img): ", FS_img[1])
         m_index = np.array(m_index) * (2 * np.pi / T0)
         m_index = np.reshape(m_index, (m_index.size, -1))
         
@@ -148,7 +150,7 @@ def eval_Bayliss(P, R, mbar, alpha_x, x):
     """My function description here.""" 
     
     if(P%2==0):
-        print "Order needs to be an ODD number for null patterns"
+        print("Order needs to be an ODD number for null patterns")
     else:
         T0=1*np.pi
     
@@ -172,14 +174,14 @@ def FS_Taylor(N, R, mbar, alpha_x, x_min, x_max, x_num, plot_far=False, dB_limit
         m_stop = int(N / 2)
         N = str(N)
         fun_str_re = 'eval_Taylor(' + N + ',' + R + ',' + mbar + ',' + alpha_x + ',' + 'x' +')'
-        print fun_str_re
+        print(fun_str_re)
         m_index, zm = FS(fun_str_re, m_start=m_start, m_stop=m_stop, err_lim=1e-5)
     else:
         m_start = -N
         m_stop = N
         N = str(N)
         fun_str_re = 'eval_Taylor(' + N + ',' + R + ',' + mbar + ',' + alpha_x + ',' + 'x' +')'
-        print fun_str_re
+        print(fun_str_re)
         m_index, zm = FS(fun_str_re, m_start=m_start, m_stop=m_stop, err_lim=1e-5)
         
     if(plot_far):
@@ -203,13 +205,13 @@ def FS_Bayliss(N, R, mbar, alpha_x, x_min, x_max, x_num, plot_far=False, dB_limi
     alpha_x = str(alpha_x)
            
     if(N % 2 == 0):
-        print "Order needs to be an ODD number for null patterns"
+        print("Order needs to be an ODD number for null patterns")
     else:
         m_start = -N
         m_stop = N
         N = str(N)
         fun_str_re = 'eval_Bayliss(' + N + ',' + R + ',' + mbar + ',' + alpha_x + ',' + 'x' +')'
-        print fun_str_re
+        print(fun_str_re)
         m_index, zm = FS(fun_str_re, m_start=m_start, m_stop=m_stop, err_lim=1e-5)
         
     if(plot_far):
@@ -261,7 +263,7 @@ def FS_Zolotarev(N, R, x_min, x_max, x_num, plot_far=False, dB_limit= -40):
        pattern"""    
            
     if(N % 2 == 0):
-        print "Order needs to be an ODD number for null patterns"
+        print("Order needs to be an ODD number for null patterns")
     else:
         m_start = -N # make this (2*P+1) ... and take fourier for only half period
         m_stop = N

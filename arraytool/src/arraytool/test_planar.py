@@ -5,7 +5,7 @@
 # License: New BSD License.
 
 import numpy as np
-import planar as pl
+from . import planar as pl
 import matplotlib.pyplot as plt
 
 M = 9  # no. of elements along the x-axis
