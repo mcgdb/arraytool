@@ -34,21 +34,22 @@ Ms1, Ms11 = sp.mathieu_modsem1(n, q, z)  # ODD functions (modified or radial or 
 
 # Plotting TM modes
 # plt.plot(q,np.sqrt(np.pi/2)*Mc1) # EVEN TM
-#plt.plot(q,np.sqrt(np.pi/2)*Ms1) # ODD TM
+# plt.plot(q,np.sqrt(np.pi/2)*Ms1) # ODD TM
 
-#Mcn1,Mcn11 = sp.mathieu_cem(n,q,z) # EVEN functions (normal or angular or SMALL)
-#Msn1,Msn11 = sp.mathieu_sem(n,q,z) # ODD functions (normal or angular or SMALL)
+# Mcn1,Mcn11 = sp.mathieu_cem(n,q,z) # EVEN functions (normal or angular or SMALL)
+# Msn1,Msn11 = sp.mathieu_sem(n,q,z) # ODD functions (normal or angular or SMALL)
 
 # Plotting TE modes
-#plt.plot(q,np.sqrt(np.pi/2)*Mcn11) # EVEN TE
-#plt.plot(q,np.sqrt(np.pi/2)*Msn11) # ODD TE
+# plt.plot(q,np.sqrt(np.pi/2)*Mcn11) # EVEN TE
+# plt.plot(q,np.sqrt(np.pi/2)*Msn11) # ODD TE
 
-plt.grid(True); plt.show()
+plt.grid(True);
+plt.show()
 
 # Obtaining roots ...
-fun1 = lambda x: sp.mathieu_modcem1(n,x,z)[1] # EVEN TE
-#fun1 = lambda x: sp.mathieu_modsem1(n,x,z)[1] # ODD TE
-#fun1 = lambda x: sp.mathieu_modcem1(n,x,z)[0] # EVEN TM
-#fun1 = lambda x: sp.mathieu_modsem1(n,x,z)[0] # ODD TM
+fun1 = lambda x: sp.mathieu_modcem1(n, x, z)[1]  # EVEN TE
+# fun1 = lambda x: sp.mathieu_modsem1(n,x,z)[1] # ODD TE
+# fun1 = lambda x: sp.mathieu_modcem1(n,x,z)[0] # EVEN TM
+# fun1 = lambda x: sp.mathieu_modsem1(n,x,z)[0] # ODD TM
 
 print(optimize.fsolve(fun1, 1.4))

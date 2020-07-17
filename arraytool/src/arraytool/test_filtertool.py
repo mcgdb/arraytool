@@ -39,9 +39,9 @@ ft.plot_mag(eps, eps_R, F, P, E, w_min=-6, w_max=6, w_num=500, dB=True,
 #
 # ft.MN_to_Sparam(M, Rs, Rl, w_min= -10, w_max=10, w_num=500, dB=True, dB_limit= -100)
 #
-#M_orig = M
-#loop = True
-#while(loop):
+# M_orig = M
+# loop = True
+# while(loop):
 #    p=input ('Enter the element position p value:  ')
 #    q=input('Enter the element position  q value:  ')
 #    i=input('Enter the pivot i value:  ')

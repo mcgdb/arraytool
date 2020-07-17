@@ -1,4 +1,3 @@
-
 Classification of Array Excitation Types
 ========================================
 

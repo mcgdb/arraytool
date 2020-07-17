@@ -19,36 +19,36 @@ b = 0.5  # 'b1' in-terms of lambda (wavelength)
 A = np.ones((N, M))  # Uniform excitation  
 array_ip = pl.ip_format(a, b, A, gamma, plot=False, stem=True, mayavi_app=False)
 
-#==============================================================================
+# ==============================================================================
 # Orthogonal beams
-#==============================================================================
+# ==============================================================================
 
 u1, F1 = pl.pattern_u(array_ip, u_scan=0, u_min=-3, u_max=3, u_num=700, scale="linear",
-          dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
+                      dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
 
-u2, F2 = pl.pattern_u(array_ip, u_scan=1/(M*a), u_min=-3, u_max=3, u_num=700, scale="linear",
-          dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
+u2, F2 = pl.pattern_u(array_ip, u_scan=1 / (M * a), u_min=-3, u_max=3, u_num=700, scale="linear",
+                      dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
 
-u3, F3 = pl.pattern_u(array_ip, u_scan=2/(M*a), u_min=-1, u_max=1, u_num=700, scale="linear",
-          dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
+u3, F3 = pl.pattern_u(array_ip, u_scan=2 / (M * a), u_min=-1, u_max=1, u_num=700, scale="linear",
+                      dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
 
-u4, F4 = pl.pattern_u(array_ip, u_scan=3/(M*a), u_min=-1, u_max=1, u_num=700, scale="linear",
-          dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
+u4, F4 = pl.pattern_u(array_ip, u_scan=3 / (M * a), u_min=-1, u_max=1, u_num=700, scale="linear",
+                      dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
 
-u5, F5 = pl.pattern_u(array_ip, u_scan=4/(M*a), u_min=-1, u_max=1, u_num=700, scale="linear",
-          dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
+u5, F5 = pl.pattern_u(array_ip, u_scan=4 / (M * a), u_min=-1, u_max=1, u_num=700, scale="linear",
+                      dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
 
-u6, F6 = pl.pattern_u(array_ip, u_scan=5/(M*a), u_min=-1, u_max=1, u_num=700, scale="linear",
-          dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
+u6, F6 = pl.pattern_u(array_ip, u_scan=5 / (M * a), u_min=-1, u_max=1, u_num=700, scale="linear",
+                      dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
 
-u7, F7 = pl.pattern_u(array_ip, u_scan=6/(M*a), u_min=-1, u_max=1, u_num=700, scale="linear",
-          dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
+u7, F7 = pl.pattern_u(array_ip, u_scan=6 / (M * a), u_min=-1, u_max=1, u_num=700, scale="linear",
+                      dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
 
-u8, F8 = pl.pattern_u(array_ip, u_scan=7/(M*a), u_min=-1, u_max=1, u_num=700, scale="linear",
-          dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
+u8, F8 = pl.pattern_u(array_ip, u_scan=7 / (M * a), u_min=-1, u_max=1, u_num=700, scale="linear",
+                      dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
 
-u9, F9 = pl.pattern_u(array_ip, u_scan=8/(M*a), u_min=-3, u_max=3, u_num=700, scale="linear",
-          dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
+u9, F9 = pl.pattern_u(array_ip, u_scan=8 / (M * a), u_min=-3, u_max=3, u_num=700, scale="linear",
+                      dB_limit=-40, factor="NF0", plot_type=False, lattice=True)
 
 plt.plot(u1, F1)
 plt.plot(u2, F2)
@@ -66,9 +66,9 @@ plt.xlabel(r'$\sin \theta$')
 plt.ylabel('AF (Linear Scale)')
 plt.show()
 
-#==============================================================================
+# ==============================================================================
 # Beam broadening
-#==============================================================================
+# ==============================================================================
 
 # u1, F1 = pl.pattern_u(array_ip, u_scan=0, u_min=-1, u_max=1, u_num=700, scale="linear",
 #           dB_limit=-40, factor="NF0", plot_type=False, lattice=True)

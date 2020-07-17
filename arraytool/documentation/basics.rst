@@ -1,4 +1,3 @@
-
 Relation between Source Excitation and Far-Field Pattern
 ========================================================
 
