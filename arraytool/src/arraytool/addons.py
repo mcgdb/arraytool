@@ -1,16 +1,11 @@
 #! /usr/bin/env python3
 
-# Author: Srinivasa Rao Zinka (srinivas . zinka [at] gmail . com)
-# Copyright (c) 2015 Srinivasa Rao Zinka
-# License: New BSD License.
-
-from . import planar as pl
+import planar as pl
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 def circ_bound(array_ip, radius=10.0, plot=True):
-    """ Function doc """
 
     for i in range(np.size(array_ip, 0)):
         x = array_ip[i, 0]
@@ -37,7 +32,7 @@ def quant():
     return
 
 
-def beamwid(tp, F_dB, dB=-3):
+def beamwidth(tp, F_dB, dB=-3):
     """ Function doc """
 
     F_peak = F_dB.max()

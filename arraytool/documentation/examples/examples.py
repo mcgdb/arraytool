@@ -14,7 +14,8 @@ def at_import_ex():
         planar.at_import()
     """
     planar.at_import()
-    
+
+
 def at_export_ex():
     """
     Similarly, :func:`at_export() <planar.at_export>` can be used to export any
@@ -25,7 +26,8 @@ def at_export_ex():
         planar.at_export()
     """
     planar.at_export()
-    
+
+
 def ip_format_ex():
     """
     One way to generate Arraytool's input format is to use the function :func:`ip_format() <planar.ip_format>`::
@@ -62,22 +64,23 @@ def ip_format_ex():
     
     Another way is, to simply make a CSV file in the below format and and import it 
     using the function :func:`at_import() <planar.at_import>`.
-    """       
+    """
     # Array lattice parameters (a & b are normalized with respect to the wavelength)
-    a = 0.5 # separation between the elements along x-axis
-    b = 0.7 # separation between the elements along y-axis
-    gamma = np.pi / 2 # lattice angle in radians
-    
+    a = 0.5  # separation between the elements along x-axis
+    b = 0.7  # separation between the elements along y-axis
+    gamma = np.pi / 2  # lattice angle in radians
+
     # Array Excitation information
-    M = 1 # no. of elements along x-axis
-    N = 11 # no. of elements along y-axis
-    A = np.ones((N, M)) # A simple uniform planar excitation
-    
+    M = 1  # no. of elements along x-axis
+    N = 11  # no. of elements along y-axis
+    A = np.ones((N, M))  # A simple uniform planar excitation
+
     # Generating Arraytool input format 
     array_ip = planar.ip_format(a, b, A, gamma)
-    
+
     print(array_ip)
-    
+
+
 def AF_zeros_ex():
     """
     Array factor of a `linear discrete` array (neglecting any normalization factor)
@@ -171,17 +174,18 @@ def A_frm_zeros_ex():
     
     As can be seen above, array coefficients at the center are normalized to the value 1.
     """
-    a = 0.5 # separation between the elements along x-axis (normalized WRS wavelength)
-    M = 10 # no. of elements along x-axis
-    
-    SLR = 25 # side-lobe ratio in dB
-    R = 10 ** (SLR / 20) # converting SLR from dB scale to linear scale
-    
+    a = 0.5  # separation between the elements along x-axis (normalized WRS wavelength)
+    M = 10  # no. of elements along x-axis
+
+    SLR = 25  # side-lobe ratio in dB
+    R = 10 ** (SLR / 20)  # converting SLR from dB scale to linear scale
+
     U0 = planar.AF_zeros(a, M, R, dist_type="Dolph-Chebyshev")
-    
-    A = planar.A_frm_zeros(U0, a, M, symmetry="even").T # finding excitation coefficients
+
+    A = planar.A_frm_zeros(U0, a, M, symmetry="even").T  # finding excitation coefficients
     print('array coefficients:', '\n', A.T)
-    
+
+
 def dist_ex():
     """
     Most of the times, we don't have to go through the process given in the last 
@@ -223,14 +227,15 @@ def dist_ex():
         array factor zeros. If this information is necessary, for the time being, there
         is no other option but to use the function :func:`AF_zeros() <planar.AF_zeros>`
     """
-    a = 0.5 # separation between the elements along x-axis (normalized WRS wavelength)
-    M = 10 # no. of elements along x-axis
-    
-    SLR = 25 # side-lobe ratio in dB
-    R = 10 ** (SLR / 20) # converting SLR from dB scale to linear scale
-    
+    a = 0.5  # separation between the elements along x-axis (normalized WRS wavelength)
+    M = 10  # no. of elements along x-axis
+
+    SLR = 25  # side-lobe ratio in dB
+    R = 10 ** (SLR / 20)  # converting SLR from dB scale to linear scale
+
     A = planar.dist(a, M, R, dist_type_x="Taylor", mbar=2, alpha_x=0)
     print('array coefficients:', '\n', A.T)
+
 
 def pattern_u_ex():
     """
@@ -269,26 +274,27 @@ def pattern_u_ex():
     .. image:: _static/pattern_u_2.png
        :align: center
     """
-    a = 0.6 # separation between the elements along x-axis (normalized WRS wavelength)
-    M = 10 # no. of elements along x-axis
-    
-    SLR = 25 # side-lobe ratio in dB
-    R = 10 ** (SLR / 20) # converting SLR from dB scale to linear scale
-    
+    a = 0.6  # separation between the elements along x-axis (normalized WRS wavelength)
+    M = 10  # no. of elements along x-axis
+
+    SLR = 25  # side-lobe ratio in dB
+    R = 10 ** (SLR / 20)  # converting SLR from dB scale to linear scale
+
     A = planar.dist(a, M, R, dist_type_x="Dolph-Chebyshev")
-    
+
     # Converting the 'excitation & position' information into Arraytool input format
     array_ip = planar.ip_format(a, b=0, A=A)
-    
+
     # Calling the 'pattern_u' function to evaluate and plot 2D AF/GF/NF
-    [u, AF] = planar.pattern_u(array_ip, u_scan=0, u_min= -2, u_max=2, u_num=300,
-                              scale="dB", dB_limit= -40, factor="NF",
-                              plot_type="rect", lattice=True)
-    
+    [u, AF] = planar.pattern_u(array_ip, u_scan=0, u_min=-2, u_max=2, u_num=300,
+                               scale="dB", dB_limit=-40, factor="NF",
+                               plot_type="rect", lattice=True)
+
     ## Calling the 'pattern_u' function to evaluate and plot 2D AF/GF/NF
-    #[u,AF] = planar.pattern_u(array_ip, u_scan=0, u_min= -1, u_max=1, u_num=300,
+    # [u,AF] = planar.pattern_u(array_ip, u_scan=0, u_min= -1, u_max=1, u_num=300,
     #                          scale="dB", dB_limit= -40, factor="NF", 
     #                          plot_type="polar", lattice=True)
+
 
 def pattern_uv_ex():
     """
@@ -328,25 +334,26 @@ def pattern_uv_ex():
     .. image:: _static/pattern_uv_2.png
        :align: center
     """
-    a = 0.6 # separation between the elements along x-axis (normalized WRS wavelength)
-    b = 0.5 # separation between the elements along y-axis (normalized WRS wavelength)
-    M = 10 # no. of elements along x-axis
-    N = 11 # no. of elements along y-axis
-    
-    A = np.ones((N, M)) # Uniform planar excitation
-    
+    a = 0.6  # separation between the elements along x-axis (normalized WRS wavelength)
+    b = 0.5  # separation between the elements along y-axis (normalized WRS wavelength)
+    M = 10  # no. of elements along x-axis
+    N = 11  # no. of elements along y-axis
+
+    A = np.ones((N, M))  # Uniform planar excitation
+
     # Converting the 'excitation & position' information into Arraytool input format
     array_ip = planar.ip_format(a, b, A)
-    
+
     # Calling the 'pattern_uv' function to evaluate and plot 3D AF/GF/NF
-    [u, v, AF] = planar.pattern_uv(array_ip, u_scan=0, v_scan=0, u_min= -2, u_max=2, u_num=300,
-                      v_min= -2, v_max=2, v_num=300, scale="dB", dB_limit= -40,
-                      factor="NF", plot_type="rect", mayavi_app=False)
-    
+    [u, v, AF] = planar.pattern_uv(array_ip, u_scan=0, v_scan=0, u_min=-2, u_max=2, u_num=300,
+                                   v_min=-2, v_max=2, v_num=300, scale="dB", dB_limit=-40,
+                                   factor="NF", plot_type="rect", mayavi_app=False)
+
     ## Calling the 'pattern_uv' function to evaluate and plot 3D AF/GF/NF
-    #[u, v, AF] = planar.pattern_uv(array_ip, u_scan=0, v_scan=0, u_min= -2, u_max=2, u_num=300,
+    # [u, v, AF] = planar.pattern_uv(array_ip, u_scan=0, v_scan=0, u_min= -2, u_max=2, u_num=300,
     #           v_min= -2, v_max=2, v_num=300, scale="dB", dB_limit=-40,
     #           factor="NF", plot_type="contour", mayavi_app=False)
+
 
 def pattern_tp_ex():
     """
@@ -397,30 +404,31 @@ def pattern_tp_ex():
     .. image:: _static/pattern_tp_3.png
        :align: center   
     """
-    a = 0.6 # separation between the elements along x-axis (normalized WRS wavelength)
-    b = 0.5 # separation between the elements along y-axis (normalized WRS wavelength)
-    M = 10 # no. of elements along x-axis
-    N = 11 # no. of elements along y-axis
-    
-    A = np.ones((N, M)) # Uniform planar excitation
-    
+    a = 0.6  # separation between the elements along x-axis (normalized WRS wavelength)
+    b = 0.5  # separation between the elements along y-axis (normalized WRS wavelength)
+    M = 10  # no. of elements along x-axis
+    N = 11  # no. of elements along y-axis
+
+    A = np.ones((N, M))  # Uniform planar excitation
+
     # Converting the 'excitation & position' information into Arraytool input format
     array_ip = planar.ip_format(a, b, A)
-    
+
     # Calling the 'pattern_tp' function to evaluate and plot 3D AF/GF/NF    
     [tht, phi, AF] = planar.pattern_tp(array_ip, tht_scan=(0) * np.pi, phi_scan=(0) * np.pi, tht_min=0,
-                      tht_max=0.5 * np.pi, tht_num=200, phi_min=0 * np.pi, phi_max=2 * np.pi,
-                      phi_num=200, scale="dB", dB_limit= -40, factor="GF", plot_type="polar")
-    
+                                       tht_max=0.5 * np.pi, tht_num=200, phi_min=0 * np.pi, phi_max=2 * np.pi,
+                                       phi_num=200, scale="dB", dB_limit=-40, factor="GF", plot_type="polar")
+
     ## Calling the 'pattern_tp' function to evaluate and plot 3D AF/GF/NF    
-    #[tht, phi, AF] = planar.pattern_tp(array_ip, tht_scan=(0)*np.pi, phi_scan=(0)*np.pi, tht_min= 0,
+    # [tht, phi, AF] = planar.pattern_tp(array_ip, tht_scan=(0)*np.pi, phi_scan=(0)*np.pi, tht_min= 0,
     #                  tht_max=0.5*np.pi, tht_num=200, phi_min= 0*np.pi, phi_max=2*np.pi,
     #                  phi_num=200, scale="dB", dB_limit= -40, factor="GF", plot_type="rect")
-    
+
     ## Calling the 'pattern_tp' function to evaluate and plot 3D AF/GF/NF    
-    #[tht, phi, AF] = planar.pattern_tp(array_ip, tht_scan=(0)*np.pi, phi_scan=(0)*np.pi, tht_min= 0,
+    # [tht, phi, AF] = planar.pattern_tp(array_ip, tht_scan=(0)*np.pi, phi_scan=(0)*np.pi, tht_min= 0,
     #                  tht_max=0.5*np.pi, tht_num=200, phi_min= 0*np.pi, phi_max=2*np.pi,
     #                  phi_num=200, scale="dB", dB_limit= -40, factor="GF", plot_type="contour")
+
 
 if __name__ == '__main__':
     import arraytool.planar as planar
