@@ -18,7 +18,7 @@ Just some important basic routines are done. There is much more to be done!
 
 import numpy as np
 import matplotlib.pyplot as plt
-#from mayavi import mlab
+from mayavi import mlab
 from . import Zolotarev as Zol
 import tkinter as ti
 import tkinter.filedialog as tkdlg
